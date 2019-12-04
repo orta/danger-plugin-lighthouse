@@ -16,99 +16,99 @@ export interface LighthouseJSON {
 }
 
 export interface Audits {
-  "is-on-https": PuneHedgehog
-  "redirects-http": PuneHedgehog
+  "is-on-https": AuditScore
+  "redirects-http": AuditScore
   "service-worker": BootupTime
-  "works-offline": PuneHedgehog
-  viewport: PuneHedgehog
-  "without-javascript": PuneHedgehog
+  "works-offline": AuditScore
+  viewport: AuditScore
+  "without-javascript": AuditScore
   "first-contentful-paint": CriticalRequestChains
   "first-meaningful-paint": CriticalRequestChains
   "load-fast-enough-for-pwa": BeijingPigeon
   "speed-index": BootupTime
-  "screenshot-thumbnails": PuneHedgehog
-  "final-screenshot": PuneHedgehog
+  "screenshot-thumbnails": AuditScore
+  "final-screenshot": AuditScore
   "estimated-input-latency": BootupTime
   "total-blocking-time": CriticalRequestChains
   "max-potential-fid": BeijingPigeon
-  "errors-in-console": PuneHedgehog
+  "errors-in-console": AuditScore
   "time-to-first-byte": CriticalRequestChains
   "first-cpu-idle": CriticalRequestChains
   interactive: BootupTime
   "user-timings": BeijingPigeon
   "critical-request-chains": CriticalRequestChains
   redirects: CriticalRequestChains
-  "installable-manifest": PuneHedgehog
-  "apple-touch-icon": PuneHedgehog
-  "splash-screen": PuneHedgehog
-  "themed-omnibox": PuneHedgehog
-  "content-width": PuneHedgehog
-  "image-aspect-ratio": PuneHedgehog
-  deprecations: PuneHedgehog
+  "installable-manifest": AuditScore
+  "apple-touch-icon": AuditScore
+  "splash-screen": AuditScore
+  "themed-omnibox": AuditScore
+  "content-width": AuditScore
+  "image-aspect-ratio": AuditScore
+  deprecations: AuditScore
   "mainthread-work-breakdown": BeijingPigeon
   "bootup-time": BootupTime
   "uses-rel-preload": BootupTime
   "uses-rel-preconnect": BootupTime
-  "font-display": PuneHedgehog
-  diagnostics: PuneHedgehog
+  "font-display": AuditScore
+  diagnostics: AuditScore
   "network-requests": BootupTime
   "network-rtt": BootupTime
-  "network-server-latency": PuneHedgehog
+  "network-server-latency": AuditScore
   "main-thread-tasks": BeijingPigeon
   metrics: CriticalRequestChains
-  "offline-start-url": PuneHedgehog
-  "performance-budget": PuneHedgehog
+  "offline-start-url": AuditScore
+  "performance-budget": AuditScore
   "resource-summary": CriticalRequestChains
   "third-party-summary": CriticalRequestChains
-  "pwa-cross-browser": PuneHedgehog
-  "pwa-page-transitions": PuneHedgehog
-  "pwa-each-page-has-url": PuneHedgehog
-  accesskeys: PuneHedgehog
-  "aria-allowed-attr": PuneHedgehog
-  "aria-required-attr": PuneHedgehog
-  "aria-required-children": PuneHedgehog
-  "aria-required-parent": PuneHedgehog
-  "aria-roles": PuneHedgehog
-  "aria-valid-attr-value": PuneHedgehog
-  "aria-valid-attr": PuneHedgehog
-  "audio-caption": PuneHedgehog
-  "button-name": PuneHedgehog
-  bypass: PuneHedgehog
-  "color-contrast": PuneHedgehog
-  "definition-list": PuneHedgehog
-  dlitem: PuneHedgehog
-  "document-title": PuneHedgehog
-  "duplicate-id": PuneHedgehog
-  "frame-title": PuneHedgehog
-  "html-has-lang": PuneHedgehog
-  "html-lang-valid": PuneHedgehog
-  "image-alt": PuneHedgehog
-  "input-image-alt": PuneHedgehog
-  label: PuneHedgehog
-  "layout-table": PuneHedgehog
-  "link-name": PuneHedgehog
-  list: PuneHedgehog
-  listitem: PuneHedgehog
+  "pwa-cross-browser": AuditScore
+  "pwa-page-transitions": AuditScore
+  "pwa-each-page-has-url": AuditScore
+  accesskeys: AuditScore
+  "aria-allowed-attr": AuditScore
+  "aria-required-attr": AuditScore
+  "aria-required-children": AuditScore
+  "aria-required-parent": AuditScore
+  "aria-roles": AuditScore
+  "aria-valid-attr-value": AuditScore
+  "aria-valid-attr": AuditScore
+  "audio-caption": AuditScore
+  "button-name": AuditScore
+  bypass: AuditScore
+  "color-contrast": AuditScore
+  "definition-list": AuditScore
+  dlitem: AuditScore
+  "document-title": AuditScore
+  "duplicate-id": AuditScore
+  "frame-title": AuditScore
+  "html-has-lang": AuditScore
+  "html-lang-valid": AuditScore
+  "image-alt": AuditScore
+  "input-image-alt": AuditScore
+  label: AuditScore
+  "layout-table": AuditScore
+  "link-name": AuditScore
+  list: AuditScore
+  listitem: AuditScore
   "meta-refresh": BeijingPigeon
   "meta-viewport": BeijingPigeon
   "object-alt": BootupTime
-  tabindex: PuneHedgehog
+  tabindex: AuditScore
   "td-headers-attr": BeijingPigeon
-  "th-has-data-cells": PuneHedgehog
-  "valid-lang": PuneHedgehog
-  "video-caption": PuneHedgehog
-  "video-description": PuneHedgehog
-  "custom-controls-labels": PuneHedgehog
-  "custom-controls-roles": PuneHedgehog
-  "focus-traps": PuneHedgehog
-  "focusable-controls": PuneHedgehog
-  "heading-levels": PuneHedgehog
-  "interactive-element-affordance": PuneHedgehog
+  "th-has-data-cells": AuditScore
+  "valid-lang": AuditScore
+  "video-caption": AuditScore
+  "video-description": AuditScore
+  "custom-controls-labels": AuditScore
+  "custom-controls-roles": AuditScore
+  "focus-traps": AuditScore
+  "focusable-controls": AuditScore
+  "heading-levels": AuditScore
+  "interactive-element-affordance": AuditScore
   "logical-tab-order": BeijingPigeon
   "managed-focus": BeijingPigeon
-  "offscreen-content-hidden": PuneHedgehog
+  "offscreen-content-hidden": AuditScore
   "use-landmarks": BeijingPigeon
-  "visual-order-follows-dom": PuneHedgehog
+  "visual-order-follows-dom": AuditScore
   "uses-long-cache-ttl": BeijingPigeon
   "total-byte-weight": CriticalRequestChains
   "offscreen-images": CriticalRequestChains
@@ -121,32 +121,32 @@ export interface Audits {
   "uses-text-compression": CriticalRequestChains
   "uses-responsive-images": BootupTime
   "efficient-animated-content": BeijingPigeon
-  "appcache-manifest": PuneHedgehog
-  doctype: PuneHedgehog
-  "dom-size": PuneHedgehog
-  "external-anchors-use-rel-noopener": PuneHedgehog
-  "geolocation-on-start": PuneHedgehog
+  "appcache-manifest": AuditScore
+  doctype: AuditScore
+  "dom-size": AuditScore
+  "external-anchors-use-rel-noopener": AuditScore
+  "geolocation-on-start": AuditScore
   "no-document-write": BeijingPigeon
   "no-vulnerable-libraries": BootupTime
-  "js-libraries": PuneHedgehog
+  "js-libraries": AuditScore
   "notification-on-start": BootupTime
-  "password-inputs-can-be-pasted-into": PuneHedgehog
+  "password-inputs-can-be-pasted-into": AuditScore
   "uses-http2": BeijingPigeon
   "uses-passive-event-listeners": BootupTime
   "meta-description": BeijingPigeon
-  "http-status-code": PuneHedgehog
-  "font-size": PuneHedgehog
-  "link-text": PuneHedgehog
-  "is-crawlable": PuneHedgehog
-  "robots-txt": PuneHedgehog
+  "http-status-code": AuditScore
+  "font-size": AuditScore
+  "link-text": AuditScore
+  "is-crawlable": AuditScore
+  "robots-txt": AuditScore
   "tap-targets": BeijingPigeon
-  hreflang: PuneHedgehog
-  plugins: PuneHedgehog
-  canonical: PuneHedgehog
-  "structured-data": PuneHedgehog
+  hreflang: AuditScore
+  plugins: AuditScore
+  canonical: AuditScore
+  "structured-data": AuditScore
 }
 
-export interface PuneHedgehog {
+export interface AuditScore {
   id: string
   title: string
   description: string

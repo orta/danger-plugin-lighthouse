@@ -55,6 +55,10 @@
     "typescript": "^3.7.2",
     "validate-commit-msg": "^2.12.1"
   },
+  "prettier": {
+    "semi": false,
+    "printWidth": 120
+  },
   "lint-staged": {
     "*.@(ts|tsx)": [
       "tslint --fix",
@@ -69,7 +73,7 @@
       "js"
     ],
     "transform": {
-      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+      ".(ts|tsx)": "ts-jest"
     },
     "testRegex": "(.test)\\.(ts|tsx)$",
     "testPathIgnorePatterns": [
