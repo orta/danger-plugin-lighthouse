@@ -10,13 +10,14 @@ import { existsSync, readdirSync, readFileSync } from "fs"
 import { join } from "path"
 import * as url from "url"
 import { LighthouseJSON } from "./types"
+import { mdTable } from "./utils/mdTable"
 
 interface LightHouseOptions {
   path: string
 }
 
 const defaultOptions = {
-  path: "results",
+  path: "results"
 }
 
 /**
@@ -35,6 +36,8 @@ export default function(options: LightHouseOptions = defaultOptions) {
   const header = "## Lighthouse Scores\n"
   markdowns.push(header)
 
+  const fails = new Set<string>()
+
   jsons.forEach(lighthousePath => {
     const fullPath = join(options.path, lighthousePath)
     const jsonString = readFileSync(fullPath, "utf8")
@@ -43,24 +46,57 @@ export default function(options: LightHouseOptions = defaultOptions) {
 
     const pageURL = url.parse(json.requestedUrl)
 
-    const auditsIActuallyCareAbout: Array<keyof LighthouseJSON["audits"]> = ["redirects-http", "errors-in-console", "interactive"]
-    const auditsIKindaWannaKnowIfTheyFail: Array<keyof LighthouseJSON["audits"]> = ["without-javascript", "viewport", "max-potential-fid"]
+    const auditsIActuallyCareAbout: Array<keyof LighthouseJSON["audits"]> = [
+      "color-contrast",
+      "bypass",
+      "document-title"
+      // "redirects-http",
+      // "errors-in-console",
+      // "interactive",
+      // "doctype",
+    ]
+
+    const auditsIKindaWannaKnowIfTheyFail: Array<keyof LighthouseJSON["audits"]> = [
+      "without-javascript",
+      "viewport",
+      "max-potential-fid"
+    ]
 
     const jsonMDs: string[] = []
 
     const categories = Object.keys(json.categories)
-    const header = categories.map(c => json.categories[c].title).join(" | ")
+    const reportHeader = categories.map(c => json.categories[c].title).join(" | ")
     const border = categories.map(c => "-").join("-: | :-")
     const content = categories.map(c => json.categories[c].score).join(" | ")
 
-    jsonMDs.push("##### [`" + pageURL.path + "`](" + pageURL.href + ")")
+    jsonMDs.push("## [`" + pageURL.path + "`](" + pageURL.href + ")")
 
-    jsonMDs.push("\n| " + header + " |")
+    // This is the headline summary
+    jsonMDs.push("\n| " + reportHeader + " |")
     jsonMDs.push("|:" + border + ":|")
     jsonMDs.push("| " + content + " |\n\n")
+
+    // List the important audits first
+    auditsIActuallyCareAbout.forEach(key => {
+      const audit = json.audits[key]
+      const failed = audit.scoreDisplayMode === "binary" && audit.score === 0
+      if (failed) {
+        fails.add(audit.id)
+        jsonMDs.push(`### ${audit.id}`)
+
+        jsonMDs.push(`${audit.title} ${audit.description}`)
+
+        if (audit.details) {
+          jsonMDs.push(mdTable(audit.details as any))
+        }
+      }
+    })
 
     markdowns.push(jsonMDs.join("\n"))
   })
 
   markdown(markdowns.join("\n"))
+  if (fails) {
+    fail(`Failed the following audits: \`${Array.from(fails).sort().join("`, `")}\``)
+  }
 }
