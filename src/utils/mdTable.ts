@@ -34,12 +34,12 @@ export function mdTable(obj: Tableable) {
   const table: string[] = []
 
   const header = obj.headings.map(h => h.text).join(" | ")
-  const border = obj.headings.map(_ => "-").join("-: | :-")
+  const border = obj.headings.map(_ => "-").join("- | -")
 
   const content = obj.items.map(createTableRow).join("|\n| ")
 
   table.push("\n| " + header + " |")
-  table.push("|:" + border + ":|")
+  table.push("|" + border + "|")
   table.push("| " + content + " |\n\n")
   return table.join("\n")
 }

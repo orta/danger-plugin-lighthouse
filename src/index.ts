@@ -97,6 +97,6 @@ export default function(options: LightHouseOptions = defaultOptions) {
 
   markdown(markdowns.join("\n"))
   if (fails) {
-    fail(`Failed the following audits: \`${Array.from(fails).sort().join("`, `")}\``)
+    fail(`Failed the following Lighthouse audits: \`${Array.from(fails).sort().join("`, `")}\``)
   }
 }
