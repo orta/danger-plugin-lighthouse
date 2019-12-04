@@ -16,9 +16,10 @@
   "keywords": [
     "danger",
     "danger-plugin",
+    "lighthouse",
     "lighthouse google"
   ],
-  "version": "0.0.1",
+  "version": "0.5.0",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "scripts": {
